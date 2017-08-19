@@ -9,6 +9,8 @@ const {User} = require('./models/user');
 var app = express();
 const port = process.env.PORT || 3000;
 
+console.log(process.env);
+
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
