@@ -56,6 +56,18 @@ UserSchema.methods.generateAuthToken = function () {
   });
 };
 
+UserSchema.methods.removeToken = function (token) {
+  var user = this;
+
+  // funzione di mongoose che rimuove un ITEM da un array che corrisponde a determinati criteri
+  return user.update({
+    $pull:{
+      tokens: {token}
+    }
+  });
+
+};
+
 UserSchema.statics.findByToken = function (token) {
   var User = this;
   var decoded;
